@@ -17,4 +17,4 @@
     git submodule update
 3,获得运行文件 localrun.sh，执行命令chmod +x localrun.sh，改变此文件的访问权限。
 4，访问./localrun.sh运行项目。
-5,下载安装 postman，进行后台接口数据的显示和测试。
+5,下载安装 postman，进行后台接口数据的显示和测试。postman介绍参考网址：http://chromecj.com/web-development/2014-09/60.html
