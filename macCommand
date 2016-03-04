@@ -1,0 +1,6 @@
+参考url:http://www.cnblogs.com/iphone520/archive/2012/03/26/2418468.html
+参考url:  http://blog.csdn.net/tammy_min/article/details/14223791
+ls 显示当前目录下的文件夹和文件的名字
+ll 显示当前目录下的文件夹和文件的详细信息
+mkdir 在当前目录下建立文件夹
+rm -rf 删除当前目录下的文件和文件夹
