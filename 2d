@@ -1,0 +1,12 @@
+1,学习和了解了git的ssh 和 http 两种链接方式的不同。使用ssh方式clone了远程仓库项目。
+  首先需要在自己系统中建立公钥，其次需要在远程仓库中提交自己的公钥。
+    参考网址：http://blog.csdn.net/d_clock/article/details/43762763
+    1，ssh-keygen -t rsa -C "你的email地址"
+    2，提示要输入一个文件名，这一步建议跳过，采用默认的，查看文件下生成id_rsa和id_rsa.pub两个秘钥文件.
+    3,提示你输入你的密码，之后生成类似下面的提示：
+        Your identification has been saved in /c/Users/you/.ssh/id_rsa. 
+        Your public key has been saved in /c/Users/you/.ssh/id_rsa.pub. 
+        The key fingerprint is: 
+        01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db 你的email地址 
+    4，cd ~/.ssh后，ls 命令，看到 id_rsa      id_rsa.pub  [known_hosts]两个文件。
+    5，vim id_rsa.pub,复制文件内容，放到服务器上的ssh keys 保存。
