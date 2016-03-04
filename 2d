@@ -10,3 +10,11 @@
         01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db 你的email地址 
     4，cd ~/.ssh后，ls 命令，看到 id_rsa      id_rsa.pub  [known_hosts]两个文件。
     5，vim id_rsa.pub,复制文件内容，放到服务器上的ssh keys 保存。
+2,如何从远程获取带子模块的项目
+  git clone url 从远程拉取项目后，npm install 依赖安装包，之后 npm start 发现不能 运行，一个middleware中间件提示找不到，是
+  因为项目带有子模块，需要从git中拉取子模块。
+    git submodule init 
+    git submodule update
+3,获得运行文件 localrun.sh，执行命令chmod +x localrun.sh，改变此文件的访问权限。
+4，访问./localrun.sh运行项目。
+5,下载安装 postman，进行后台接口数据的显示和测试。
