@@ -25,3 +25,14 @@ console.dir(arryR.sort(function(a,b){return a-b}))
 //当前计算用时:74088ms //合计75s
 //Array[14]0: 11 1: 12 2: 13 3: 14 4: 15 5: 16 6: 17 7: 18 8: 19 9: 20 10: 21 11: 22 12: 23 13: 24 length: 14
 // Array[10]0: 0 1: 1 2: 2 3: 3 4: 4 5: 5 6: 6 7: 7 8: 8 9: 9 length: 10
+
+
+//下面这个函数可以方便地从数组中随机取出一项
+function selectFrom(lowerValue,upperValue){
+  var choices = upperValue - lowerValue + 1;
+  return Math.floor(Math.random() * choices + lowerValue);
+}
+//用法如下：
+var colors = ['red','green','blue','yellow','black','purple','brown','grey','not'];
+var color = colors[selectFrom(0,colors.length-1)];
+console.log(color);
