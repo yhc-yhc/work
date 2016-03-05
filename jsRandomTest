@@ -1,0 +1,27 @@
+//周末没事测试js数据处理能力
+//随机生机1千成次0到1之前的小数，统计下这1千万次中生成了几位小数
+//返回1千万次的0-9之前的数数字
+//统计下运算时间
+var t1= new Date().getTime();
+var arryL=[],arryR=[];
+for(var i=0;i<10000000;i++){
+  var a= Math.random();
+  var b= String(a);
+  var c= b.split("");
+  var d= Math.floor(a*10);
+  var e= c.length;
+  if(arryL.indexOf(e)==-1){
+    arryL[arryL.length]=e
+  }
+  if(arryR.indexOf(d)==-1){
+    arryR[arryR.length]=d
+  }
+}
+var t2= new Date().getTime();
+console.log("当前计算用时:"+(t2-t1)+"ms")
+console.dir(arryL.sort(function(a,b){return a-b}));
+console.dir(arryR.sort(function(a,b){return a-b}))
+//下面是运算结果
+//当前计算用时:74088ms //合计75s
+//Array[14]0: 11 1: 12 2: 13 3: 14 4: 15 5: 16 6: 17 7: 18 8: 19 9: 20 10: 21 11: 22 12: 23 13: 24 length: 14
+// Array[10]0: 0 1: 1 2: 2 3: 3 4: 4 5: 5 6: 6 7: 7 8: 8 9: 9 length: 10
