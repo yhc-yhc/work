@@ -5,3 +5,5 @@ ll 显示当前目录下的文件夹和文件的详细信息
 mkdir 在当前目录下建立文件夹
 rm -rf 删除当前目录下的文件和文件夹
 open . 可以使用finder打开当前目录
+touch aa.js 创建aa.js文件
+
