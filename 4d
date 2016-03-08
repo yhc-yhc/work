@@ -1,2 +1,7 @@
 1, 根据项目使用的socket.io，为前台写了一个接口api.
 2, 使用tmux窗口时，尝试到的快捷操作，command +r 快速召唤，command +d 新建排列的窗口。
+3, 做任务时有一个数据集合用到了version和mongodb数据库冲突，导致已经加入的数据无法管理，此处必须注意。
+4，关于接收页面参数的几种方法：
+  this.request.body.param 获取post请求时传过来的参数
+  this.query.param 获取get请求时传过来的参数
+  this.request.user 一般用来获取根据token对应的用户对象
