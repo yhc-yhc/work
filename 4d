@@ -1,0 +1,2 @@
+1, 根据项目使用的socket.io，为前台写了一个接口api.
+2, 使用tmux窗口时，尝试到的快捷操作，command +r 快速召唤，command +d 新建排列的窗口。
