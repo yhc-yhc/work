@@ -1,1 +1,2 @@
 1.git提交空目录，参考网址：http://blog.csdn.net/younger_china/article/details/21653463,git是不管理目录的，它只管理文件的变动。
+2.试着写了一个数据模型的增、删、改
