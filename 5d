@@ -1,0 +1,10 @@
+1,拉取子模块步骤
+  1,首先从远程仓库摘取项目，git clone url 
+  2,初始化子模块，git submodule int 
+  3,更新子模块，git submodule update
+  4,同步远程仓库的子模块 ./gitpull.sh
+  5,安装包依赖， npm install
+  6，取到项目启动文件，更改文件权限  chmod +x localrun.sh
+  7, 运行启动文件 ，./localrun.sh
+  8，如果项目启动时出现找不到模块的错误，npm install name -save
+  8,./localrun.sh
