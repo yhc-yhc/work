@@ -1,0 +1,2 @@
+1,在mac系统中，使用sublime text时可以用command + z 撤销，使用command + y恢复，但使用webstorm不可以，只能使用command + shif +z
+来恢复，测试在sublim中也可以使用。
