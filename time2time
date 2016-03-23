@@ -2,3 +2,4 @@
   a,在mac系统中查看node对端口使用情况，命令如下：ps aux | grep node
   b,如果要结束一个端口的占用，可以使用如下命令：sudo kill -9 pid
   c,一个项目要增加子模块，可以使用这个命令： git submodule add sshUrl
+  d,在git 一个版本中，如果对所有的修改反悔，可以使用git checkout . 返回到和远程代码一样的状态。
