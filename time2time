@@ -3,3 +3,10 @@
   b,如果要结束一个端口的占用，可以使用如下命令：sudo kill -9 pid
   c,一个项目要增加子模块，可以使用这个命令： git submodule add sshUrl
   d,在git 一个版本中，如果对所有的修改反悔，可以使用git checkout . 返回到和远程代码一样的状态。
+2,2016:3:29
+  a,post put delete 都是类似通过json把数据post到后端，在koa中接收用this.request.body.跟上参数名就可以了。
+  b,get 能过url地址传参时，在后端koa中接收用this.request.query.跟上参数名。
+  c,url/:id 是 url/id 的方式向后端传参，接收时用this.params.跟上参数名。
+  d,在mongoDB中insert方法插入文档后返回的数组中，会包含_id的元素对象。
+  e,在使用update的时候，返回的结果是[ 1, { ok: true, n: 1, updatedExisting: true } ],是数据库返回的结果，
+    可以使用result[1].ok来判断有没有成功。
