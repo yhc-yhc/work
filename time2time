@@ -10,3 +10,16 @@
   d,在mongoDB中insert方法插入文档后返回的数组中，会包含_id的元素对象。
   e,在使用update的时候，返回的结果是[ 1, { ok: true, n: 1, updatedExisting: true } ],是数据库返回的结果，
     可以使用result[1].ok来判断有没有成功。
+    
+    
+3,2016:4:6
+  a,判断网页是否在微信上打开：
+  function isWeiXin()
+    {
+      var ua = window.navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+        return true;
+      } else {
+        return false;
+      }
+    }
