@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>interface 1</title>
+  <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <!-- <script type="text/javascript" src="angular.min.js"></script> -->
+</head>
+<body>
+<div class="container" ng-controller="bodyCtrl">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="panel-title">
+            连接服务器
+            <span class="pull-right">
+              <a href="" class="btn btn-xs btn-danger">请求所有接口</a>
+            </span>
+          </div>
+          
+        </div>
+        <div class="panel-body">
+          <form action="" class="form form-horizontal">
+            <div class="row">
+              <div class="col-md-5">
+
+                <div class="row">
+                  <div class="col-md-12" ng-controller="serverCtrl">
+                    <input type="radio" name="server" ng-checked="{{data.testServer == data.autoServer}}" ng-click="changeServer(data.testServer)">
+                    测试服：{{data.testServer}}
+                    <br>
+                    <input type="radio" name="server" ng-checked="{{data.productServer == data.autoServer}}" ng-click="changeServer(data.productServer)">
+                    正式服：{{data.productServer}}
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12" ng-controller="userCtrl">
+                    <input type="radio" name="user" ng-checked="{{data.user.type == data.autoUser.type}}" ng-click="changeUser(data.user.type)">
+                    普通用户：{{data.user}}
+                    <br>
+                    <input type="radio" name="user" ng-checked="{{data.admin.type == data.autoUser.type}}" ng-click="changeUser(data.admin.type)">
+                    管理员：{{data.admin}}
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-7" ng-controller="tokenCtrl">
+                使用 {{data.autoUser}}, 登录到 {{data.autoServer}} 后，得到结果中，token是：{{data.token}}
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default" ng-controller="userCtrl">
+        <div class="panel-heading">
+          <div class="panel-title">
+            user
+            <span class="pull-right">
+              <a href="" class="btn btn-xs btn-danger">{{data.sectionParams.user.prex + '.' + data.autoServer}}</a>
+            </span>
+          </div>
+        </div>
+        <table class="table table-stript">
+          <thead>
+            <th width="5%">method</th>
+            <th>url</th>
+            <th>data</th>
+            <th width="50%">result</th>
+            <th width="5%"><a href="" class="btn btn-sm" ng-click="sendBathReq(data.sectionParams.user.prex)"> refresh</a></th>
+          </thead>
+          <tr ng-repeat="interface in data.sectionParams.user.interface">
+            <td>{{interface.method}}</td>
+            <td>{{interface.url}}</td>
+            <td>{{interface.data}}</td>
+            <td>result</td>
+            <td><a href="" class="btn btn-xs" ng-click="sendReq(interface.id)">send</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default" ng-controller="materialCtrl">
+        <div class="panel-heading">
+          <div class="panel-title">
+            material
+            <span class="pull-right">
+              <a href="" class="btn btn-xs btn-danger">{{data.sectionParams.material.prex + '.' + data.autoServer}}</a>
+            </span>
+          </div>
+        </div>
+        <table class="table table-stript">
+          <thead>
+            <th width="5%">method</th>
+            <th>url</th>
+            <th>data</th>
+            <th width="50%">result</th>
+            <th width="5%"><a href="" class="btn btn-sm" ng-click="sendBathReq(data.sectionParams.material.prex)">refresh</a> </th>
+          </thead>
+          <tr ng-repeat="interface in data.sectionParams.material.interface">
+            <td>{{interface.method}}</td>
+            <td>{{interface.url}}</td>
+            <td>{{interface.data}}</td>
+            <td>result</td>
+            <td><a href="" class="btn btn-xs" ng-click="sendReq(interface.id)">send</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default" ng-controller="radioCtrl">
+        <div class="panel-heading">
+          <div class="panel-title">
+            radio
+            <span class="pull-right">
+              <a href="" class="btn btn-xs btn-danger">{{data.sectionParams.radio.prex + '.' + data.autoServer}}</a>
+            </span>
+          </div>
+        </div>
+        <table class="table table-stript">
+          <thead>
+            <th width="5%">method</th>
+            <th>url</th>
+            <th>data</th>
+            <th width="50%">result</th>
+            <th width="5%"><a href="" class="btn btn-sm" ng-click="sendBathReq(data.sectionParams.radio.prex)">refresh</a> </th>
+          </thead>
+          <tr ng-repeat="interface in data.sectionParams.radio.interface">
+            <td>{{interface.method}}</td>
+            <td>{{interface.url}}</td>
+            <td>{{interface.data}}</td>
+            <td>result</td>
+            <td><a href="" class="btn btn-xs" ng-click="sendReq(interface.id)">send</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default" ng-controller="chatCtrl">
+        <div class="panel-heading">
+          <div class="panel-title">
+            chat
+            <span class="pull-right">
+              <a href="" class="btn btn-xs btn-danger">{{data.sectionParams.chat.prex + '.' + data.autoServer}}</a>
+            </span>
+          </div>
+        </div>
+        <table class="table table-stript">
+          <thead>
+            <th width="5%">method</th>
+            <th>url</th>
+            <th>data</th>
+            <th width="50%">result</th>
+            <th width="5%"><a href="" class="btn btn-sm" ng-click="sendBathReq(data.sectionParams.chat.prex)">refresh</a> </th>
+          </thead>
+          <tr ng-repeat="interface in data.sectionParams.chat.interface">
+            <td>{{interface.method}}</td>
+            <td>{{interface.url}}</td>
+            <td>{{interface.data}}</td>
+            <td>result</td>
+            <td><a href="" class="btn btn-xs" ng-click="sendReq(interface.id)">send</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<script type="text/javascript">
+  var app  = angular.module('app', [])
+  .constant('productServer', 'www.google.com.com')
+  .constant('testServer', 'www.baidu.com')
+  .value('user', {name: 'username', type: 1, phone: '12323344323'})
+  .value('admin', {name: 'admin1',type: 10, password: '11'})
+  .factory('DATAS', function($http, productServer, testServer, user, admin){
+    var data = {
+      productServer: productServer,
+      testServer: testServer,
+      autoServer: testServer,
+      user: user,
+      admin: admin,
+      autoUser: user,
+      sectionParams: {
+        user: {
+          prex: 'http://user',
+          interface: [
+            {
+              id: 'u_1',
+              method: 'POST',
+              url: 'session/amdinLogin',
+              data: {
+                a: 1,
+                b: 2
+              }
+            },
+            {
+              id: 'u_2',
+              method: 'GET',
+              url: 'nosession/regiseter',
+            }
+          ]
+        },
+        material: {
+          prex: 'http://material',
+          interface: [
+            {
+              id: 'm_1',
+              method: 'POST',
+              url: 'session/todayMaterial',
+              data: {
+                a: 1,
+                b: 2
+              }
+            },
+            {
+              id: 'm_2',
+              method: 'GET',
+              url: 'nosession/todayMaterial',
+            }
+          ]
+        },
+        article: {
+          prex: 'http://article',
+          interface: []
+        },
+        radio: {
+          prex: 'http://radio',
+          interface: []
+        },
+        chat: {
+          prex: 'http://chat',
+          interface: []
+        }
+      },
+      changeAutoServer: function (url) {
+        this.autoServer = url;
+        this.getToken();
+      },
+      changeUser: function (type) {
+        if(type == this.user.type)
+          this.autoUser = user;
+        else
+          this.autoUser = admin;
+        this.getToken();
+      },
+      getToken: function (argument) {
+        var url = this.sectionParams.user.prex + '.' + this.autoServer;
+        var req = {};
+        req.url = url;
+        req.method = 'GET';
+        var that = this;
+        $http(req).then(function(data) { 
+          var a = Math.random();
+          that.token = a            
+        }, function(data) {
+          var a= Math.random() 
+          that.token = a;            
+        })
+      },
+      setToken: function (token) {
+        this.token = token;
+      }
+    }
+
+    return data;
+  })
+  .service('reqNet', function($http, DATAS){
+    
+  })
+
+  .controller('bodyCtrl', function($scope, $http, DATAS){
+    $scope.data = DATAS;
+    $scope.sendReq = function (id) {
+      alert(id)
+    }
+  })
+
+  .controller('serverCtrl', function($scope, DATAS){
+    $scope.data = DATAS;
+    $scope.changeServer = function(url) {
+      DATAS.changeAutoServer(url);
+    }
+  })
+  .controller('userCtrl', function($scope, DATAS){
+    $scope.data = DATAS;
+    $scope.changeUser = function(type) {
+      DATAS.changeUser(type)
+    }
+  })
+  
+  .controller('tokenCtrl', function($scope, $http, DATAS){
+    $scope.data = DATAS;
+    var url = DATAS.sectionParams.user.prex + '.' + DATAS.autoServer;
+    var req = {};
+    req.url = url;
+    req.method = 'GET';
+    $http(req).then(function (argument) {
+      DATAS.setToken(Math.random())
+    }, function (argument) {
+      DATAS.setToken(Math.random())
+    })
+  })
+  
+  .controller('userCtrl', function($scope, $http, DATAS){
+    $scope.data = DATAS;
+  })
+
+  .controller('materialCtrl', function($scope, $http, DATAS){
+    $scope.data = DATAS;
+  })
+
+  .controller('radioCtrl', function($scope, $http, DATAS){
+    $scope.data = DATAS;
+  })
+
+  .controller('chatCtrl', function($scope, $http, DATAS){
+    $scope.data = DATAS;
+  })
+</script>
+</body>
+</html>
