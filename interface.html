@@ -5,8 +5,8 @@
   <title>interface 1</title>
   <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-  <!-- <script type="text/javascript" src="angular.min.js"></script> -->
+  <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script> -->
+  <script type="text/javascript" src="angular.min.js"></script>
 </head>
 <body>
 <div class="container" ng-controller="bodyCtrl">
@@ -17,7 +17,7 @@
           <div class="panel-title">
             连接服务器
             <span class="pull-right">
-              <a href="" class="btn btn-xs btn-danger">请求所有接口</a>
+              <a href="" class="btn btn-xs btn-danger" ng-click="sendAllReq()">请求所有接口</a>
             </span>
           </div>
           
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-md-12" ng-controller="userCtrl">
+                  <div class="col-md-12" ng-controller="checkUserCtrl">
                     <input type="radio" name="user" ng-checked="{{data.user.type == data.autoUser.type}}" ng-click="changeUser(data.user.type)">
                     普通用户：{{data.user}}
                     <br>
@@ -65,7 +65,7 @@
           <div class="panel-title">
             user
             <span class="pull-right">
-              <a href="" class="btn btn-xs btn-danger">{{data.sectionParams.user.prex + '.' + data.autoServer}}</a>
+              <span class="badge">{{data.sectionParams.user.prex + '.' + data.autoServer}}</a>
             </span>
           </div>
         </div>
@@ -96,7 +96,7 @@
           <div class="panel-title">
             material
             <span class="pull-right">
-              <a href="" class="btn btn-xs btn-danger">{{data.sectionParams.material.prex + '.' + data.autoServer}}</a>
+              <span class="badge">{{data.sectionParams.material.prex + '.' + data.autoServer}}</a>
             </span>
           </div>
         </div>
@@ -127,7 +127,7 @@
           <div class="panel-title">
             radio
             <span class="pull-right">
-              <a href="" class="btn btn-xs btn-danger">{{data.sectionParams.radio.prex + '.' + data.autoServer}}</a>
+              <span class="badge">{{data.sectionParams.radio.prex + '.' + data.autoServer}}</a>
             </span>
           </div>
         </div>
@@ -158,7 +158,7 @@
           <div class="panel-title">
             chat
             <span class="pull-right">
-              <a href="" class="btn btn-xs btn-danger">{{data.sectionParams.chat.prex + '.' + data.autoServer}}</a>
+              <span class="badge">{{data.sectionParams.chat.prex + '.' + data.autoServer}}</a>
             </span>
           </div>
         </div>
@@ -253,7 +253,7 @@
         this.autoServer = url;
         this.getToken();
       },
-      changeUser: function (type) {
+      changeAutoUser: function (type) {
         if(type == this.user.type)
           this.autoUser = user;
         else
@@ -290,6 +290,12 @@
     $scope.sendReq = function (id) {
       alert(id)
     }
+    $scope.sendBathReq = function (prex) {
+      alert(prex)
+    }
+    $scope.sendAllReq = function () {
+      alert('all')
+    }
   })
 
   .controller('serverCtrl', function($scope, DATAS){
@@ -298,10 +304,10 @@
       DATAS.changeAutoServer(url);
     }
   })
-  .controller('userCtrl', function($scope, DATAS){
+  .controller('checkUserCtrl', function($scope, DATAS){
     $scope.data = DATAS;
     $scope.changeUser = function(type) {
-      DATAS.changeUser(type)
+      DATAS.changeAutoUser(type)
     }
   })
   
