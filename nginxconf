@@ -1,0 +1,6 @@
+install nginx in mac
+  brew install nginx
+  nginx -h
+  nginx
+  nginx -s reload
+  
